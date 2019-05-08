@@ -23,4 +23,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('/votar/{id}', 'VotosController@post')->name('votos.create');
+
 
