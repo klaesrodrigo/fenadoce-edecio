@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 use App\Candidata;
+use App\Voto;
+use Illuminate\Support\Facades\DB;
 
 class CandidataController extends Controller
 {
@@ -180,4 +182,22 @@ class CandidataController extends Controller
 
         return view('votacao', ['reg' => $reg, 'acao' => 3]);
     }
+
+    public function votosCandidata(){
+        $linhas = Voto::select(DB::raw('candidata_id, count(*) as total'))
+                    ->groupBy('candidata_id')
+                    ->orderBy('total', 'desc')
+                    ->get();
+
+        return view('votos_candidatas', ['linhas'=>$linhas]);
+    }
+
+    public function consultaVotosCandidata($id){
+
+        $reg = Candidata::find($id);
+        $linhas = Voto::where('candidata_id', '=', $id)->get();
+        
+        return view('consulta_votos', ['linhas'=>$linhas, 'reg'=>$reg]);
+    }
+
 }

@@ -11,8 +11,8 @@ class VotosController extends Controller
     public function post(Request $request, $id){
 
         $validatedData = $request->validate([
-            'email' => 'required|unique:votos|max:255',
-            'nome' => 'required',
+            'nome' => 'required|min:11|max:50|regex:/ /um',
+            'email' => 'required|unique:votos',
         ]);
 
         // obtém todos os campos do formulário
@@ -21,7 +21,13 @@ class VotosController extends Controller
 
         $reg = Voto::create($dados);
 
-        return redirect('/');
+        if ($reg) {
+            return redirect()->route('principal')
+                   ->with('status', 'Voto Computado!');
+        } else {
+            return redirect()->route('filmes.index')
+                   ->with('status', 'Erro... Erro ao computar voto!');
+        }
             
     }
 }
