@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', 'CandidataController@principal');
+Route::get('/', 'CandidataController@principal')->name('principal');
 
 Route::post('/', 'CandidataController@pesquisa')->name('pesquisa');
+
+Route::get('/candidatas/votos', 'CandidataController@votosCandidata')->name('candidata.votos')->middleware('auth');
+
+Route::get('candidatas/consulta/{id}', 'CandidataController@consultaVotosCandidata')->name('candidata.consultar')->middleware('auth');
+
 
 Route::get('/votar/{id}', 'CandidataController@votar')->name('votar');
 

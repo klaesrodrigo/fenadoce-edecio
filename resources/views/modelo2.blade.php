@@ -16,8 +16,11 @@
       <a class="navbar-brand" href="#">Fenadoce 2019</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li><a href="/">Home</a></li>
     </ul>
+    <ul class="nav navbar-nav">
+        <li><a href="/candidatas">Painel de Controle</a></li>
+      </ul>
     <ul class="nav navbar-nav navbar-right">
   </div>
 </nav>

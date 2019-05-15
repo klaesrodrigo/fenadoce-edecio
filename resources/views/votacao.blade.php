@@ -27,11 +27,11 @@
         
             <label>
                 E-mail:<br>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" value={{$reg->email or old('email')}}>
             </label>
             <label>
                 Nome:<br>
-                <input type="text" id="nome" name="nome">
+                <input type="text" id="nome" name="nome" value={{old('nome')}}>
             </label><br>
                 
             <input type="submit" value="Votar" class="btn btn-info" style="margin: 10px 0;">

@@ -10,8 +10,13 @@
         <input type="submit" value="Buscar" class="btn btn-info" style="margin: 0 10px;">
       </form>
   </div>
+  @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+  @endif
 
-        @foreach ($linhas as $linha)
+        @forelse ($linhas as $linha)
     <div class="card border border-primary col-sm-12" 
          style="width: 24rem; margin:5px; padding: 10px; border: 2px solid blue; border-radius: 15px;">
          <div style="width: 100%">
@@ -24,7 +29,9 @@
             <a href="{{ route('votar', $linha->id) }}" class="btn btn-primary btn-sm" role="button" style="margin: auto; display: block;">Votar</a>&nbsp;
         </div>
       </div>
-      @endforeach
+      @empty
+        <p class="alert alert-warning">Nenhuma candidata encontrada</p>
+      @endforelse
 </div>
 
 @endsection

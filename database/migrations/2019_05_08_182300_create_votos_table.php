@@ -17,9 +17,10 @@ class CreateVotosTable extends Migration
             $table->increments('id');
             $table->string('nome', 100);
             $table->string('email', 60);
-            $table->unsignedBigInteger('candidata_id');
+            $table->integer('candidata_id')->unsigned();
+            //mysq$table->foreign('candidata_id')->references('id')->on('candidatas');
             $table->timestamps();
-            $table->foreign('candidata_id')->references('id')->on('candidatas');
+            
         });
     }
 

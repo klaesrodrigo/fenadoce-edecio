@@ -16,13 +16,14 @@
       <a class="navbar-brand" href="#">Fenadoce 2019</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="/candidatas">Home</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastros <span class="caret"></span></a>
         <ul class="dropdown-menu">
         <li><a href="{{ route('candidatas.index') }}">Candidatas</a></li>
         </ul>
       </li>
-      <li><a href="#">Pesquisas</a></li>
+      <li><a href="/candidatas/votos">Pesquisas</a></li>
+      <li><a href="/">Votar</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
